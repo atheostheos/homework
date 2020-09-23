@@ -13,6 +13,7 @@ public class Sum {
 				elem = Math.pow(-1,(i-1)) / Math.pow((2*i-1), 2);
 				sum += elem;
 			}
+			
 			System.out.println("The sum of elements is: " + sum);
 		}
 	}
