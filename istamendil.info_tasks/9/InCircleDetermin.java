@@ -1,14 +1,14 @@
 public class InCircleDetermin {
 
 	public static void main(String[] args) {
-		if ( (args.length < 5) || (Double.valueOf(args[2]) < 0) ) {
+		if ( (args.length < 5) || (Double.parseDouble(args[2]) < 0) ) {
 			System.out.println("Incorrect input data.");
 		} else {
-			double cx = Double.valueOf(args[0]);
-			double cy = Double.valueOf(args[1]);
-			double r = Double.valueOf(args[2]);
-			double x = Double.valueOf(args[3]);
-			double y = Double.valueOf(args[4]);
+			double cx = Double.parseDouble(args[0]);
+			double cy = Double.parseDouble(args[1]);
+			double r = Double.parseDouble(args[2]);
+			double x = Double.parseDouble(args[3]);
+			double y = Double.parseDouble(args[4]);
 
 			double distx = Math.abs(cx-x);
 			double disty = Math.abs(cy-y);
