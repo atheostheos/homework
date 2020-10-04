@@ -20,6 +20,7 @@ public class IndexOf {
 
 				for (int i = 0; (i < tryMatchCycles) && flagIndexNotFound; i++) {
 					if (str1.charAt(i) == str2.charAt(0)) { //if first chars match check other chars
+						
 						for (int j = i; (j < (i + str2.length()) ) && flagIsMatch; j++) { 
 							if (str1.charAt(j) == str2.charAt(j-i)) {
 								count += 1;

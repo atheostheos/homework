@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class IndexOfIgnoreCase {
 
 	public static char toLowerCase(char ch) {
-		if ( (ch >= 65) && (ch <= 90) ) {
+		if ( (ch >= 'A') && (ch <= 'Z') ) {
 			ch +=32;
 		}
 		return ch;
