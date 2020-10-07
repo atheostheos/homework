@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class NodCalc {
+public class GCFCalc {
 
-	public static int getNodEvclid(int num1, int num2) {
+	public static int getGCFEvclid(int num1, int num2) {
 		while (num1 != num2) {
 			if (num1 > num2) {
 				num1 -= num2;
@@ -14,7 +14,7 @@ public class NodCalc {
 		return num1;
 	}
 
-	public static int getNodIter(int num1, int num2) {
+	public static int getGCFIter(int num1, int num2) {
 		int[] div1 = new int[num1]; // div1 & and div2 are divisors of num1 & num2:
 		int[] div2 = new int[num2];	// index - divisor, value - number of divisors.
 
@@ -32,14 +32,14 @@ public class NodCalc {
 			}
 		}
 
-		int nod = 1;
+		int gcf = 1;
 		for (int i = 2; i < Math.min(div1.length, div2.length); i++) {
 			if (Math.min(div1[i],div2[i]) != 0) {
-				nod *= Math.pow( i, Math.min(div1[i],div2[i]) );
+				gcf *= Math.pow( i, Math.min(div1[i],div2[i]) );
 			}
 		}
 
-		return nod;
+		return gcf;
 
 	}
 	
@@ -59,12 +59,12 @@ public class NodCalc {
 		}
 
 		time[0] = System.currentTimeMillis();
-		System.out.print("NOD by Euclid algorithm: " + getNodEvclid(num[0], num[1]));
+		System.out.print("GCF by Euclid algorithm: " + getGCFEvclid(num[0], num[1]));
 		time[0] = System.currentTimeMillis() - time[0];
 		System.out.println("  | time: " + time[0] + ".");
 
 		time[1] = System.currentTimeMillis();
-		System.out.print("NOD by iterations: " + getNodIter(num[0], num[1]));
+		System.out.print("GCF by iterations: " + getGCFIter(num[0], num[1]));
 		time[1] = System.currentTimeMillis() - time[1];
 		System.out.println("  | time: " + time[1] + ".");
 
