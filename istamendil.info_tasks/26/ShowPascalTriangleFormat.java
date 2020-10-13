@@ -17,7 +17,7 @@ public class ShowPascalTriangleFormat {
 			}
 			for (int k = 0; k <= n; k++) {
 				long elem = getBinomCoef(n, k);
-				System.out.printf("%-" + (maxLen+ 1) + "d", elem);
+				System.out.printf("%-" + (maxLen+1) + "d", elem);
 			}
 			System.out.print('\n');
 		}
