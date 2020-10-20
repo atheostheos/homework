@@ -14,8 +14,8 @@ public class CheckBrackets {
 
 	}
 
-	public static boolean checkBrackets (char[] ch, int i, int nesting) { // nesting - amount of open brackets
-																			 //in current bracket + 1, e.g. ((())) - 3
+	public static boolean checkBrackets (char[] ch, int i, int nesting) { 
+		// nesting - amount of open brackets in current bracket + 1, e.g. ((())) - 3
 		if (i == ch.length-1) { // check of last element
 			switch (ch[i]) {
 
