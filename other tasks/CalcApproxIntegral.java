@@ -1,8 +1,11 @@
 import java.util.Scanner;
+import java.io.FileOutputStream;
+import java.io.File;
+import java.io.IOException;
 
 public class CalcApproxIntegral {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException{
 
 		//_________Data input_________
 		Scanner sc = new Scanner(System.in);
@@ -20,7 +23,7 @@ public class CalcApproxIntegral {
 			}
 			x[i] = sc.nextDouble();
 		}
-		sc.nextLine(); //read exessive \n after nextDouble function
+		sc.nextLine(); //read excessive \n after nextDouble function
 		
 		System.out.print("Enter amount of divisions (affects the accuracy of calculation): ");
 			while (!sc.hasNextInt()) {
@@ -55,7 +58,15 @@ public class CalcApproxIntegral {
 					System.exit(1);
 			}
 
-		System.out.printf("Calculated integral is: %.2f \n", integral);
+		String result = String.format("Line segment [%.4f;%.4f], %d divisions, %s method: %f.\n", x[0], x[1], n, method, integral);
+		File outPath = new File("CalcApproxIntegral_result.txt");
+		outPath.createNewFile();
+		FileOutputStream output = new FileOutputStream(outPath, true);
+
+		output.write(result.getBytes());
+		output.close();
+
+		System.out.printf("Calculated integral is: %f \n", integral);
 
 	}
 
@@ -85,6 +96,7 @@ public class CalcApproxIntegral {
 		while ( (x0 + dx) < (x1 - dx)) {
 			integral += (i % 2 != 0) ? 4*func(x0) : 2*func(x0);
 			x0 += dx;
+			i += 1;
 		}
 		integral = coef * integral;
 		return integral;	

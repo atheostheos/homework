@@ -6,34 +6,27 @@ public class ArrayInterface {
         int n = 5;
         String[] notes = new String[n];
         int counter = 0;
+        boolean flagStatus;
         while(true) {
 
-            System.out.println("Please enter command");
+            System.out.print("Please enter command: ");
             String command = sc.nextLine();
+            flagStatus = true;
+
 
             switch (command) {
                 case "add":
-                    if (counter > notes.length) {
-                        System.out.println("Size limit. Can\'t add new elements");
-                        counter--;
-                    } else {
-                    add(counter, notes, sc);
-                    counter++;
-                    }
+                    flagStatus = add(counter, notes, sc);
+                    if (flagStatus) counter++;
                     break;
 
                 case "remove":
-                    if (counter <= 0) {
-                        System.out.println("No elements found.");
-                        counter++;
-                    } else {
-                        remove(counter, notes, sc);
-                        counter--;
-                    }
+                    flagStatus = remove(counter, notes, sc);
+                    if (flagStatus) counter--;
                     break;
 
                 case "max":
-                    System.out.println(getMaxLength(counter, notes, sc));
+                    System.out.println(getMax(counter, notes, sc));
                     break;
 
                 case "print":
@@ -47,29 +40,41 @@ public class ArrayInterface {
                 default:
                     System.out.println("Unknown command! Try again");
             }
+
+            if (!flagStatus) System.out.println("Command not applicable.");
         }
     }
 
-    public static void add(int counter, String[] notes, Scanner sc){
-        notes[counter] = sc.nextLine();
+    public static boolean add(int counter, String[] notes, Scanner sc){
+        if (counter < notes.length) {
+            notes[counter] = sc.nextLine();
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public static void remove(int counter, String[] notes, Scanner sc){
-        notes[counter] = null;
+    public static boolean remove(int counter, String[] notes, Scanner sc){
+        if (counter > 0) {
+            notes[counter-1] = null;
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public static int getMaxLength(int counter, String[] notes, Scanner sc) {
-        int max = 0;
+    public static String getMax(int counter, String[] notes, Scanner sc) {
+        int iMax = 0;
         for (int i = 0; i < counter; i++) {
-            if (notes[i].length() > max) max = notes[i].length();
+            if (notes[i].length() > notes[iMax].length()) iMax = i;
         }
-        return max;
+        return notes[iMax];
     }
 
     public static void printNotes(int counter, String[] notes) {
         for (int i = 0; i < counter; i++) {
             System.out.print(notes[i] + " ");
         }
-        System.out.println("\n");
+        System.out.print("\n");
     }
 }
