@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/3. modifiable collection/3. modifiable collection.iml" filepath="$PROJECT_DIR$/3. modifiable collection/3. modifiable collection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/4. sorted set/4. sorted set.iml" filepath="$PROJECT_DIR$/4. sorted set/4. sorted set.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1. generics/comparable/comparable.iml" filepath="$PROJECT_DIR$/1. generics/comparable/comparable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1. generics/container/container.iml" filepath="$PROJECT_DIR$/1. generics/container/container.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2. iterator/generic/generic.iml" filepath="$PROJECT_DIR$/2. iterator/generic/generic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2. iterator/odd/odd.iml" filepath="$PROJECT_DIR$/2. iterator/odd/odd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/programming.iml" filepath="$PROJECT_DIR$/.idea/programming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2. iterator/random/random.iml" filepath="$PROJECT_DIR$/2. iterator/random/random.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2. iterator/reversed/reversed.iml" filepath="$PROJECT_DIR$/2. iterator/reversed/reversed.iml" />
+    </modules>
+  </component>
+</project>

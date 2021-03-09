@@ -1,0 +1,4 @@
+package atheostheos.clothes;
+
+public class Parka extends Outerwear {
+}

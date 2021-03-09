@@ -1,0 +1,23 @@
+package atheostheos.abs;
+
+public class FrontDoor extends Door {
+    // private Key key;
+    @Override
+    public void open() {
+        //push handle, open
+    }
+
+    @Override
+    public void close() {
+        //push handle, close
+    }
+
+    @Override
+    public void unlock() {
+        //Key.unlock();
+    }
+
+    public void lock() {
+        //Key.lock();
+    }
+}

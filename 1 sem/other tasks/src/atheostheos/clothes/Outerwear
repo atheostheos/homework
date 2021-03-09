@@ -1,0 +1,5 @@
+package atheostheos.clothes;
+
+public abstract class Outerwear extends Clothes {
+    public boolean waterproof;
+}

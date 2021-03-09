@@ -1,0 +1,7 @@
+package atheostheos.clothes;
+
+public abstract class Clothes {
+    protected String type;
+    protected String material;
+    protected String size;
+}
