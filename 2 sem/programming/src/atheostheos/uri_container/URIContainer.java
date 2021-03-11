@@ -1,31 +1,32 @@
 package atheostheos.uri_container;
 
-import java.security.URIParameter;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class URIContainer {
     protected final int GROUPS_AMOUNT = 8;
-    protected final String REGEX = "^([^:]+):(?://)?(?:([^:]*):?([^@]*)@)?" +
-                                    "([^:/]+):?([\\d.]*)/?([a-zа-яё%/]*)" +
-                                    "\\??([a-zа-яё/=\"'&]*)#?(.*)$";
+    protected final String REGEX =
+            "^([^:]+):(?://)?(?:([^:]*):?([^@]*)@)?([^:/]+):?([\\d.]*)/?([a-zа-яё%/]*)\\??([a-zа-яё/=\"'&]*)#?(.*)$|" +
+            "^(?:/?(?:\\.\\.)/)*(?:/?[\\w]+/?)+(?:\\.[\\w]+)?$";
     protected String uri;
     protected String[] uriParts = new String[8];
 
     public URIContainer(String uri) {
         this.uri = uri;
         Matcher matcher = Pattern.compile(REGEX, Pattern.CASE_INSENSITIVE+Pattern.UNICODE_CASE+Pattern.MULTILINE).matcher(uri);
-        try {
-            matcher.find();
-            for (int i = 1; i<=GROUPS_AMOUNT;i++) {
-                uriParts[i-1] = matcher.group(i);
-                if ((uriParts[i-1] != null) && (uriParts[i-1].equals(""))) uriParts[i-1] = null;
+
+        if (!matcher.find()) throw new IllegalArgumentException("Incorrect uri format");
+
+        System.out.println(matcher.group(1));
+        if (matcher.group(1) == null) {
+            uriParts[5] = matcher.group(0);
+        } else {
+            for (int i = 1; i <= GROUPS_AMOUNT; i++) {
+                uriParts[i - 1] = matcher.group(i);
+                if ((uriParts[i - 1] != null) && (uriParts[i - 1].equals(""))) uriParts[i - 1] = null;
             }
-        } catch (Exception e) {
-            throw new IllegalArgumentException("Incorrect uri format");
         }
     }
 

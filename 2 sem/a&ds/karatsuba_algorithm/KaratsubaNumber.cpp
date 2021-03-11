@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -6,26 +7,21 @@ class KaratsubaNumber
 {
 protected:
 	int const capacity = 32;
-	bool digits[32];
+	vector<bool> digits;
 
 public:
 	KaratsubaNumber()
 	{
-		for (int i = 0; i < capacity; i++)
-		{
-			digits[i] = 0;
-		}
+		digits.resize(capacity, 0);
 	}
 
-	KaratsubaNumber(int n) 
+	KaratsubaNumber(int n) :KaratsubaNumber()
 	{
-		KaratsubaNumber();
 		add(n);
 	}
 
-	KaratsubaNumber(KaratsubaNumber *n)
+	KaratsubaNumber(KaratsubaNumber *n) :KaratsubaNumber()
 	{
-		KaratsubaNumber();
 		add(n);
 	}
 
@@ -43,24 +39,47 @@ public:
 	int getValue()
 	{
 		int value = 0;
+		bool negative;
+		if (digits[0])
+		{
+			negative = true;
+			inverse(digits);
+		}
 		for (int i = capacity - 1; i > 0; i--)
 		{
-			value += pow(2, capacity - i + 1);
+			if (digits[i])
+			{
+			value += pow(2, capacity-1- i);
+			}
 		}
-		if (digits[0]) value *= -1;
+		if (negative)
+		{
+			value *= -1;
+			inverse(digits);
+		}
 
 		return value;
 	}
 
-protected:
-	bool* toDigits(int n)
+	void printDigits()
 	{
-		bool d[32];
+		for (int el : digits)
+		{
+			cout << el << " ";
+		}
+		cout << endl;
+	}
+
+protected:
+	vector<bool> toDigits(int n)
+	{
+		vector<bool> d(32,0);
 		int i = capacity-1;
+		bool negative = false;
 
 		if (n < 0)
 		{
-			d[0] = 1;
+			negative = true;
 			n *= -1;
 		}
 
@@ -71,17 +90,28 @@ protected:
 			i--;
 		}
 
+		if (negative) inverse(d);
+
 		return d;
 	}
 
-	int add(bool* n)
+	void inverse(vector<bool> d)
+	{
+		for (int i = 0; i < capacity; i++) 
+		{
+			d[i] = !d[i];
+		}
+		add(1);
+	}
+
+	int add(vector<bool> n)
 	{
 		int c;
 		bool addflag = false;
 		
 		for (int i = capacity-1 ; i > 0; i--)
 		{
-			c = digits[i] + n[i] + addflag;
+			c = digits.at(i) + n[i] + addflag;
 			switch (c)
 			{
 			case 1:
@@ -102,6 +132,8 @@ protected:
 
 		return getValue();
 	}
+
+	
 	
 };
 
@@ -110,7 +142,8 @@ int main()
 	KaratsubaNumber n = new KaratsubaNumber();
 
 	n.add(10);
-	cout << n.getValue();
+	cout << n.getValue() << endl;
+	n.printDigits();
 
 	return 0;
 }

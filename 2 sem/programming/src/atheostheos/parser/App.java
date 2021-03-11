@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class App {
     public static void main(String[] args) throws IOException {
 
-        String path = "C:\\Users\\coalm\\OneDrive\\Документы\\git\\homework\\2 семестр\\programming\\data\\lamoda.txt";
+        String path = "data\\lamoda.txt";
 
         String itemsRegex = "<div class=\"products-list-item.*?</div></div></div>";
         Pattern itemsPattern = Pattern.compile(itemsRegex, Pattern.DOTALL);
