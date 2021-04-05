@@ -1,0 +1,6 @@
+﻿  KaratsubaNumber.cpp
+C:\Users\coalm\OneDrive\Документы\git\homework\2 sem\a&ds\karatsuba_algorithm\KaratsubaNumber.cpp(85,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\coalm\OneDrive\Документы\git\homework\2 sem\a&ds\karatsuba_algorithm\KaratsubaNumber.cpp(126,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\coalm\OneDrive\Документы\git\homework\2 sem\a&ds\karatsuba_algorithm\KaratsubaNumber.cpp(189,1): warning C4244: '+=': conversion from 'double' to 'long', possible loss of data
+C:\Users\coalm\OneDrive\Документы\git\homework\2 sem\a&ds\karatsuba_algorithm\KaratsubaNumber.cpp(258,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  karatsuba_algorithm.vcxproj -> C:\Users\coalm\OneDrive\Документы\git\homework\2 sem\a&ds\atheostheos\x64\Debug\karatsuba_algorithm.exe

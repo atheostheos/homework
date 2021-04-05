@@ -1,3 +1,3 @@
 ﻿  KaratsubaNumber.cpp
-C:\Users\coalm\OneDrive\Документы\git\homework\2 sem\a&ds\karatsuba_algorithm\KaratsubaNumber.cpp(52,1): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Users\coalm\OneDrive\Документы\git\homework\2 sem\a&ds\karatsuba_algorithm\KaratsubaNumber.cpp(241,12): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   karatsuba_algorithm.vcxproj -> C:\Users\coalm\OneDrive\Документы\git\homework\2 sem\a&ds\atheostheos\Debug\karatsuba_algorithm.exe

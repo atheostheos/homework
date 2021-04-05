@@ -12,5 +12,6 @@ public class Main {
         System.out.println(Arrays.toString(cont2.getUriParts()));
         System.out.println(Arrays.toString(cont3.getUriParts()));
         System.out.println(cont1);
+
     }
 }
