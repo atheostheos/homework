@@ -17,7 +17,7 @@ public class RMCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean process(FileManager manager, CommandParameters params) {
+    public boolean process(FileManager manager, CommandParamsContainer params) {
         Path goTo = Paths.get(params.getArgs().get(0));
         Path newPath = manager.getDirectory().toPath().resolve(goTo);
         return newPath.toFile().delete();

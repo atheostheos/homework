@@ -15,7 +15,7 @@ public class TreeCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean process(FileManager manager, CommandParameters params) {
+    public boolean process(FileManager manager, CommandParamsContainer params) {
         TreeDirectory tree = new TreeDirectory(manager.getDirectory());
         tree.show();
         return true;

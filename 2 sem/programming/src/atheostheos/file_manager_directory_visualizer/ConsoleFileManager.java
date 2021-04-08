@@ -1,10 +1,9 @@
 package atheostheos.file_manager_directory_visualizer;
 
-import atheostheos.file_manager_directory_visualizer.commands.ArrayCommandParameters;
+import atheostheos.file_manager_directory_visualizer.commands.RegexCommandParamsContainer;
 import atheostheos.file_manager_directory_visualizer.commands.Command;
 
 import java.io.File;
-import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +19,7 @@ public class ConsoleFileManager implements FileManager {
 
     @Override
     public void processCommand(String line) {
-        ArrayCommandParameters params = new ArrayCommandParameters(line);
+        RegexCommandParamsContainer params = new RegexCommandParamsContainer(line);
         try {
             commands.get(params.getCommand()).process(this, params);
         } catch (NullPointerException e) {

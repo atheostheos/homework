@@ -5,35 +5,22 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ArrayCommandParameters implements CommandParameters {
+public abstract class AbstractArrayCommandParamsContainer implements CommandParamsContainer {
     protected String command;
     protected ArrayList<String> args;
     protected ArrayList<String> flags;
 
-    public ArrayCommandParameters(String line) {
-        this.args = new ArrayList<>();
-        this.flags = new ArrayList<>();
-        Matcher commandMatcher = Pattern.compile("^[^\\s]+").matcher(line);
-        Matcher argsMatcher = Pattern.compile(" ([^\\s\\-]+)").matcher(line);
-        Matcher flagsMatcher = Pattern.compile("-([\\w]+)").matcher(line);
-
-        commandMatcher.find();
-        this.command = commandMatcher.group();
-
-        while(argsMatcher.find()) {
-            args.add(argsMatcher.group(1));
-        }
-
-        while(flagsMatcher.find()) {
-            flags.add(flagsMatcher.group(1));
-        }
+    public AbstractArrayCommandParamsContainer(String line) {
+        this.args = new ArrayList<String>();
+        this.flags = new ArrayList<String>();
+        processParameters(line);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ArrayCommandParameters)) return false;
-        ArrayCommandParameters that = (ArrayCommandParameters) o;
+        if (!(o instanceof RegexCommandParamsContainer)) return false;
+        RegexCommandParamsContainer that = (RegexCommandParamsContainer) o;
         return Objects.equals(command, that.command) &&
                 Objects.equals(args, that.args) &&
                 Objects.equals(flags, that.flags);

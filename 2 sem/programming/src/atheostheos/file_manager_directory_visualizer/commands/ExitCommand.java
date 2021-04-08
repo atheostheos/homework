@@ -14,7 +14,7 @@ public class ExitCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean process(FileManager manager, CommandParameters params) {
+    public boolean process(FileManager manager, CommandParamsContainer params) {
         System.exit(0);
         return true;
     }

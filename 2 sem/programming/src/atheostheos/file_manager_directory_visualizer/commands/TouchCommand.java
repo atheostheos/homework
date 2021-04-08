@@ -18,7 +18,7 @@ public class TouchCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean process(FileManager manager, CommandParameters params) {
+    public boolean process(FileManager manager, CommandParamsContainer params) {
         boolean allCreated = true;
         for (String filename: params.getArgs()) {
             Path filePath = Paths.get(filename);

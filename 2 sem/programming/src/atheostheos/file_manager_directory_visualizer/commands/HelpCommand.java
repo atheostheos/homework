@@ -14,7 +14,7 @@ public class HelpCommand extends AbstractCommand {
     }
 
     @Override
-    public boolean process(FileManager manager, CommandParameters params) {
+    public boolean process(FileManager manager, CommandParamsContainer params) {
         for (Command command: manager.getCommands()) {
             System.out.println(command);
         }

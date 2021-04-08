@@ -1,10 +1,7 @@
 package atheostheos.file_manager_directory_visualizer.commands;
 
 import atheostheos.file_manager_directory_visualizer.FileManager;
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
-import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -20,7 +17,7 @@ public class MKDirCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean process(FileManager manager, CommandParameters params) {
+    public boolean process(FileManager manager, CommandParamsContainer params) {
         boolean result = false;
         Path goTo = Paths.get(params.getArgs().get(0));
         Path curPath = manager.getDirectory().toPath();

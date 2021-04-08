@@ -19,7 +19,7 @@ public class CDCommand extends AbstractCommand{
     }
 
     @Override
-    public boolean process(FileManager manager, CommandParameters params) {
+    public boolean process(FileManager manager, CommandParamsContainer params) {
         Path goTo = Paths.get(params.getArgs().get(0));
         Path curPath = manager.getDirectory().toPath();
         File newFile = curPath.resolve(goTo).normalize().toFile();

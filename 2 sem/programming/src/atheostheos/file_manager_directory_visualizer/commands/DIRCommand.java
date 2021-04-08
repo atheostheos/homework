@@ -17,7 +17,7 @@ public class DIRCommand extends AbstractCommand {
     }
 
     @Override
-    public boolean process(FileManager manager, CommandParameters params) {
+    public boolean process(FileManager manager, CommandParamsContainer params) {
         File dir = manager.getDirectory();
         File[] children = dir.listFiles();
         if (children == null) return false;
