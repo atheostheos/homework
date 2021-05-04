@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 public class TreeDirectory {
     protected Directory directory;
+    public static final String ANSI_RESET = "\u001B[0m";;
+    public static final String ANSI_BLUE = "\u001B[34m";
 
     public TreeDirectory(File file) {
         this.directory = new Directory(file);
@@ -69,8 +71,11 @@ public class TreeDirectory {
                 else System.out.print("└──");
                 newParentsLast.add(index == last - 1);
             }
-
-            System.out.printf(("%s\n") , file.getName());
+            if (children.size() != 0 ) {
+                System.out.printf(("%s%s%s\n"), ANSI_BLUE, file.getName(), ANSI_RESET);
+            } else {
+                System.out.printf(("%s\n"), file.getName());
+            }
 
             for (int i = 0; i< children.size(); i++) {
                 children.get(i).show(level+1, i, children.size(), newParentsLast);

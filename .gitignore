@@ -1,3 +1,5 @@
 2 sem/programming/data/trash/
 *.class
 53#
+**/.vs/
+**/Debug/

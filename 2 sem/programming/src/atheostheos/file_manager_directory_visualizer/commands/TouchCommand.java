@@ -30,6 +30,13 @@ public class TouchCommand extends AbstractCommand{
                 allCreated = false;
             }
         }
+
+        if (allCreated) {
+            System.out.println("File/files created");
+        } else {
+            System.out.println("Unable to create files/Some of files were not created");
+        }
+
         return allCreated;
     }
 }
